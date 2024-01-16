@@ -1,0 +1,100 @@
+.contain {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    margin: 15px;
+    padding: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.contain button {
+    margin: 3px;
+    opacity: 0.9;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #3a4447;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #5534db;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.specialButton {
+    margin: 0;
+}
+
+.contain button:hover {
+    background-color: #294db9;
+    border-color: #3a29b9;
+}
+
+
+.contain button:active {
+    background-color: #21618c;
+    border-color: #21618c;
+}
+
+.contain input {
+    padding: 11px;
+    font-size: 16px;
+    border: 2px solid #162485;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contain input:focus {
+    border-color: #277fae;
+    box-shadow: 0 0 5px rgba(39, 174, 174, 0.5);
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Estilo al pasar el ratón sobre el select */
+.select:hover {
+    border-color: #888;
+}
+
+/* Estilo al enfocar el select */
+.select:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+}
+
+/* Estilo para el ícono de flecha desplegable */
+.select:after {
+    content: '\25BC';
+    /* Código de la flecha abajo ▼ */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #555;
+}
+
+/* Estilo al pasar el ratón sobre el ícono de flecha */
+.select:hover:after {
+    color: #888;
+}
+
+/* Estilo al enfocar el select y el ícono de flecha */
+.select:focus:after {
+    color: #555;
+}

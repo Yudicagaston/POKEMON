@@ -1,0 +1,60 @@
+.contain {
+    margin: 5px;
+}
+
+.buttonHome {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #3a4447;
+    border-radius: 30px;
+    color: #fff;
+    background-color: #5534db;
+    opacity: 0.8;
+    padding: 40px 70px;
+    font-size: 30px;
+}
+
+.imagePoke {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    margin: 5px;
+    background-color: #f5fe02;
+    border-radius: 100%;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.detail {
+    position: absolute;
+    top: 0%;
+    right: 25%;
+    opacity: 0.85;
+    margin: 100px;
+    display: inline-block;
+    padding: 40px 80px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #3a4447;
+    border-radius: 30px;
+    color: #020202;
+    background-color: #f5fe02;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.typesInLine {
+    display: inline-block;
+    margin: 15px;
+}
