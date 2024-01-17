@@ -99,7 +99,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 types: action.payload,
-                error: null,
+
             };
         case GET_TYPES_ERROR:
             return {

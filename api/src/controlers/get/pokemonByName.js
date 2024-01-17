@@ -1,19 +1,22 @@
-const axios = require("axios")
+const axios = require("axios");
 const { formatMyPokemon, formatSinglePokemon } = require("../funcionesParaControllers");
-const { Pokemon, Type } = require("../../db")
+const { Pokemon, Type } = require("../../db");
 const { Op } = require('sequelize');
+
+const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokemonByName = async (req, res) => {
     try {
         const { name } = req.query;
 
-        if (!name) return res.status(400).json({ message: `Ingrese un nombre para la consulta.` });
+        if (!name) {
+            return res.status(400).json({ message: `Ingrese un nombre para la consulta.` });
+        }
 
         const lowercaseName = name.toLowerCase();
-        let pokemon = {};
-        pokemon = await Pokemon.findOne({
+        let pokemon = await Pokemon.findOne({
             where: { name: { [Op.iLike]: `${name}` } },
-            include: [ //que incluya esta asociación en particular al recuperar el registro.
+            include: [
                 {
                     model: Type,
                     attributes: ["name"],
@@ -21,24 +24,26 @@ const PokemonByName = async (req, res) => {
                 }
             ]
         });
-        let poke = formatMyPokemon(pokemon)
-        if (poke) {
-            return res.status(200).json(poke);
+
+        if (pokemon) {
+            const formattedPokemon = formatMyPokemon(pokemon);
+            return res.status(200).json(formattedPokemon);
         }
 
-        const { data } = await axios(`https://pokeapi.co/api/v2/pokemon/${lowercaseName}`)
+        const { data } = await axios(`${POKE_API_URL}${lowercaseName}`);
 
-        if (data) {
-            pokemon = formatSinglePokemon(data);
+        if (!data) {
+            return res.status(404).json({ message: `No existe un Pokémon llamado ${name}` });
         }
-        if (!pokemon) return res.status(404).json({ message: `No existe un pokemon llamado ${name}` });
 
+        pokemon = formatSinglePokemon(data);
         return res.status(200).json(pokemon);
     } catch (error) {
-        return res.status(500).json(error.message);
+        console.error("Error en PokemonByName:", error);
+        return res.status(500).json({ error: "Error interno del servidor al procesar la solicitud" });
     }
 };
 
 module.exports = {
     PokemonByName,
-}
+};

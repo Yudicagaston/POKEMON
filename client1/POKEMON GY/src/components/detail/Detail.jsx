@@ -24,7 +24,7 @@ const Detail = () => {
                 <button className={styles.buttonHome}>🏡 Home</button>
             </Link>
             <div className={styles.imagePoke}>
-                <img src={poke.image} width="500px" />
+                <img src={poke.image} width="400px" />
             </div>
             <div className={styles.detail}>
                 <div>

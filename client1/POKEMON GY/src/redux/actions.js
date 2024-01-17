@@ -57,7 +57,7 @@ export const resetDetail = () => {
 
 export const searchPoke = (name) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`${API_URL}/name?name=${name}`);
+        const { data } = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
         dispatch({
             type: "GET_NAME",
             payload: data,
@@ -86,7 +86,7 @@ export const orderAtt = (orden) => {
 
 export const getTypes = () => async (dispatch) => {
     try {
-        let types = await axios.get(`${API_URL}/types`);
+        let types = await axios.get(`http://localhost:3001/types`);
         dispatch({
             type: "GET_TYPES",
             payload: types.data,
@@ -115,7 +115,7 @@ export const filterTypes = (types) => {
 
 export const pokeCreate = (payload) => async (dispatch) => {
     try {
-        const response = await axios.post(`${API_URL}/pokemons`, payload);
+        const response = await axios.post(`${API_URL}`, payload);
         dispatch({
             type: "POKE_CREATE",
             payload: response.data,

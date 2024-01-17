@@ -22,7 +22,7 @@
 .imagePoke {
     position: absolute;
     top: 10%;
-    left: 0%;
+    left: 10%;
     margin: 5px;
     background-color: #f5fe02;
     border-radius: 100%;
@@ -30,7 +30,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 
 
 }

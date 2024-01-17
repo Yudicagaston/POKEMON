@@ -3,7 +3,7 @@ import Styles from './Create.module.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTypes, pokeCreate } from '../../redux/actions'
-
+import * as imgTypes from "../utils/ExportTypesImage"
 
 const styleBoton = {
     margin: '5px',
@@ -215,11 +215,8 @@ const FormCreate = () => {
                                             width="30px"
                                             src={imgTypes[`${type}`]}
                                         />
-                                        <h3 key={index}>
-                                            {type && type.charAt(0).toUpperCase() + type.slice(1)}
-                                        </h3>
                                         <span
-                                            key={index}
+
                                             onClick={() => handleDelete(type)}
                                         >
                                             ✖️

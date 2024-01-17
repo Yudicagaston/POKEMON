@@ -20,7 +20,8 @@ const allTypes = async (req, res) => {
         return res.status(200).json(allType);
 
     } catch (error) {
-        return res.status(500).json(error.message);
+        console.error("Error en la función allTypes:", error);
+        return res.status(500).json({ error: "Error interno del servidor" })
     }
 };
 
