@@ -17,11 +17,11 @@ export const GET_TYPES_ERROR = "GET_TYPES_ERROR"
 export const POKE_CREATE_ERROR = "POKE_CREATE_ERROR"
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/pokemons";
+//const API_URL = "http://localhost:3001/pokemons";
 
 export const allPoke = (character) => async (dispatch) => {
     try {
-        const { data } = await axios.get(API_URL, character);
+        const { data } = await axios.get("/pokemons", character);
         dispatch({
             type: "ALL_POKE",
             payload: data,
@@ -36,7 +36,7 @@ export const allPoke = (character) => async (dispatch) => {
 
 export const pokeById = (id, isFromAPI) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`${API_URL}/${id}?isFromAPI=${isFromAPI}`);
+        const { data } = await axios.get(`/pokemons/${id}?isFromAPI=${isFromAPI}`);
         dispatch({
             type: "ID_POKE",
             payload: data,
@@ -57,7 +57,7 @@ export const resetDetail = () => {
 
 export const searchPoke = (name) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
+        const { data } = await axios.get(`/pokemons/name?name=${name}`);
         dispatch({
             type: "GET_NAME",
             payload: data,
@@ -86,7 +86,7 @@ export const orderAtt = (orden) => {
 
 export const getTypes = () => async (dispatch) => {
     try {
-        let types = await axios.get(`http://localhost:3001/types`);
+        let types = await axios.get(`/types`);
         dispatch({
             type: "GET_TYPES",
             payload: types.data,
@@ -115,7 +115,7 @@ export const filterTypes = (types) => {
 
 export const pokeCreate = (payload) => async (dispatch) => {
     try {
-        const response = await axios.post(`${API_URL}`, payload);
+        const response = await axios.post(`/pokemons`, payload);
         dispatch({
             type: "POKE_CREATE",
             payload: response.data,

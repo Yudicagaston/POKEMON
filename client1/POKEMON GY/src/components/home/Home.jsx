@@ -13,7 +13,7 @@ import { allPoke, getTypes } from "../../redux/actions";
 
 const Home = () => {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const pokemons = useSelector((state) => state.allPokemons);
     const allTypes = useSelector((state) => state.types);
 

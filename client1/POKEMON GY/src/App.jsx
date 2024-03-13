@@ -5,6 +5,8 @@ import Home from './components/home/Home'
 import FormCreate from './components/form/FormCreate'
 import Error from './components/error/Error'
 import Detail from './components/detail/Detail'
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3001/'
 function App() {
   return (
     <div>
