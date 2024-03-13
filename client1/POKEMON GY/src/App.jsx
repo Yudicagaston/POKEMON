@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Landing from './components/landing/landing'
+import Landing from './components/landing/Landing'
 import Home from './components/home/Home'
 import FormCreate from './components/form/FormCreate'
 import Error from './components/error/Error'
