@@ -6,7 +6,7 @@ import FormCreate from './components/form/FormCreate'
 import Error from './components/error/Error'
 import Detail from './components/detail/Detail'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://pokemon-production-4bed.up.railway.app/'
 function App() {
   return (
     <div>
